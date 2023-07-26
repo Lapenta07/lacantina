@@ -18,33 +18,18 @@ try {
 }
 
 export default async function ListOfPosts() {
-const post = await getPost();
-
-return (
-<section>
-    {post.map(({id, attributes}) => (
-        
-    <div key={id} className="card">
-        <div className="receta">
-            <img src={`http://127.0.0.1:1337${attributes.imagen.data.attributes.url}`} alt="" />
-        </div>
-        <div className="details">
-            <h3 className="titulo">{attributes.titulo}</h3>
-            <div className="info">
-                <p>{attributes.descripcion}</p>
-                <div className="compra">
-                    <Link href="/" className="carrito">
-                        <button>Leer más</button>
-                    </Link>            
+    const post = await getPost();
+    console.log(post);
+  
+    return (
+        <div className="grilla">
+            {post.map(({ id, attributes }) => (
+                <div key={id}>
+                    <h1>{attributes.titulo}</h1>
+                    <p>{attributes.descripcion}</p>
+                    <img src={`http://127.0.0.1:1337${attributes.imagen.data.attributes.url}`} alt="" /> 
                 </div>
-            </div>
-                
-            </div>
-    </div>
-
-))}
-</section>
-    
-);
-
-}
+            ))}
+        </div>
+    );
+  }
