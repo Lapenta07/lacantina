@@ -6,7 +6,7 @@ export default function BarraNavegacion() {
 return (
 <header>
     <div className="logo"><Link href='/'>
-    <img src="./assets/facha.png" alt="logo"/>
+    <img src="../assets/facha.png" alt="logo"/>
     </Link></div>
     <input type="checkbox" id="nav_check" hidden />
     <nav>

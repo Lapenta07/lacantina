@@ -1,0 +1,133 @@
+.main{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 2rem auto;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .left{
+    width: 700px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    margin-top: 6rem
+  }
+  
+  .left .nombre{
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .left .nombre h1{
+    color: #ff5c5c;
+    font-size: 3.5rem;
+    font-weight: bolder;
+    text-decoration: underline;
+    text-transform: uppercase;
+  }
+  
+  .left .introduccion{
+    display: block;
+    color: white;
+    margin: 32px 0 0 25px;
+    font-weight: bold;
+    text-align: left;
+    letter-spacing: 1.7px;
+  }
+  
+  .left .button{
+    display: block;
+    font-weight: 600;
+    padding: 10px 18px;
+    transition: 0.2s;
+    border-radius: 30px;
+    text-decoration: none;
+    margin: 43px -30px;
+  }
+  .left .button{
+    margin: 32px 32px;
+    font-weight: 600;
+    padding: 10px 18px;
+    transition: 0.2s;
+    border-radius: 30px;
+    text-decoration: none;
+    background: #ff5c5c;
+    color: #f6f4ff;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+  .left .button:hover{
+    background-color: white;
+  }
+  
+  
+  
+  .left .button a{
+    color: white;
+    text-decoration: none;
+    transition: 0.2s;
+  }
+  
+  .left .button:hover a{
+    color: #ff5c5c;
+  }
+  
+  
+  .right .imagen{
+    display: flex;
+    justify-content: right;
+  }
+  
+  .right .imagen img{
+    height: 725px;
+  }
+  
+  @media (width <= 1440px){
+    .main .left{
+      width: 600px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: left;
+      margin-top: 6rem
+    }
+  
+    .main .left .nombre h1{
+      color: #ff5c5c;
+      font-size: 3rem;
+      font-weight: bolder;
+      text-decoration: underline;
+      text-transform: uppercase;
+    }
+  
+    .main .right .imagen img{
+      height: 430px;
+    }
+  }
+  @media (width <= 768px){
+    .main{
+      margin: 3rem auto;
+    }
+  
+    .main .right .imagen img{
+      height: 350px;
+    }
+  }
+  
+  @media (width <= 426px){
+    .main .left .nombre h1{
+      font-size: 2rem;
+    }
+    .main .right .imagen img{
+      height: 200px;
+    }
+  }
+  
+  @media (width <= 325px){
+    .main .left .nombre h1{
+      font-size: 1.5rem;
+    }
+  }
+  

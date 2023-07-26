@@ -1,0 +1,123 @@
+.card{
+    margin: 1rem auto;
+    position: relative;
+    width: 300px;
+    height: 415px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.card .receta{
+    position: relative;
+    overflow: hidden;
+}
+
+.card .receta::before{
+    content: '';
+    position: absolute;
+    bottom: -190px;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, #1064a6 50%, transparent);
+    transition: 0.5s;
+    z-index: 1;
+}
+
+.card:hover .receta::before{
+    bottom: -30px;
+}
+
+.card .receta img{
+    width: 100%;
+    transition: 0.5s;
+}
+
+.card:hover .receta img{
+    transform:  translateY(-150px);
+    filter: blur(2px);
+}
+
+.card .details{
+    position: absolute;
+    width: 100%;
+    bottom: -300px;
+    left: 0;
+    padding: 20px;
+    z-index: 2;
+    transition: 0.5s;
+}
+
+@media (width < 450px){
+  .card .details{
+  padding: 20px 2px 20px 5px;
+  }
+}
+
+.card .details a{
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.card:hover .details{
+    bottom: 0;
+}
+
+.card .details .titulo{
+    color: white;
+    max-width: 180px;
+    transition: 0.5s;
+}
+
+.card:hover .details .titulo{
+    color: #ffffff;
+}
+
+.rating{
+    position: relative;
+    padding: 5px 0;
+}
+
+.card .details .rating .fa-star{
+    color: #f7f406;
+    font-size: 1rem;
+    margin-right: 8px;
+}
+
+.card .details .rating span{
+    color: #ffffff;
+}
+
+.card .details .tags{
+    position: relative;
+    margin-top: 5px;
+}
+
+.card .details .tags span{
+    color: #ffffff;
+    padding: 2px 5px;
+    margin-right: 8px;
+    background: #ff5c5c;
+    border-radius: 6px;
+}
+
+.card .details .info{
+    color: #ffffff;
+    margin-top: 20px;
+    
+}
+
+.compra{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.compra .carrito span{
+    color: #ff5c5c;
+    font-size: 2rem;
+}
