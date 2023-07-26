@@ -35,7 +35,7 @@ return (
                         <p>{attributes.descripcion}</p>
                     </div>
                     <div className="boton">
-                        <Link href="/"><button>Leer más</button></Link>
+                        <Link href="/"><button>Leer nota</button></Link>
                     </div>
                 </div>
    

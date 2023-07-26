@@ -9,8 +9,8 @@ export default function Nosotros() {
       </div>
 
       <div className="principal">
-        <div className="foto">
-          <Image layout="responsive" width={640} height={420} src="/assets/cantina.jpg" />
+        <div className="cantina">
+          <img src="/assets/cantina.jpg"/>
         </div>
         <div className="parrafo">
           <p>

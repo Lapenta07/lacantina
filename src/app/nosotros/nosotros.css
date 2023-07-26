@@ -5,6 +5,10 @@
     margin: 16px auto;
 }
 
+.cantina img{
+    border-radius: 10px;
+}
+
 .heading h2{
     color: var(--salmon);
 }
