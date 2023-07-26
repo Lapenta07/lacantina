@@ -20,16 +20,26 @@ try {
 export default async function ListOfPosts() {
     const post = await getPost();
     console.log(post);
-  
-    return (
-        <div className="grilla">
-            {post.map(({ id, attributes }) => (
-                <div key={id}>
-                    <h1>{attributes.titulo}</h1>
-                    <p>{attributes.descripcion}</p>
-                    <img src={`http://127.0.0.1:1337${attributes.imagen.data.attributes.url}`} alt="" /> 
+
+return (
+    <div className="main">
+        {post.map(({ id, attributes }) => (
+                <div key={id} className="entrada">
+                    <div className="foto">
+                        <img src={`http://127.0.0.1:1337${attributes.imagen.data.attributes.url}`} alt="" /> 
+                    </div>
+                    <div className="titulo">    
+                        <h3>{attributes.titulo}</h3>
+                    </div>
+                    <div className="descripcion"> 
+                        <p>{attributes.descripcion}</p>
+                    </div>
+                    <div className="boton">
+                        <Link href="/"><button>Leer más</button></Link>
+                    </div>
                 </div>
-            ))}
-        </div>
-    );
-  }
+   
+        ))}
+    </div>
+);
+}
