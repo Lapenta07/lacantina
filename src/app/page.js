@@ -6,7 +6,7 @@ export default function Home() {
     <main className='main'>
       <div className="left">
       <div className="nombre">
-        <h1>La Cantina</h1>
+        <h1>Sweet Cantina</h1>
       </div>
       <div className="introduccion">
         <p>Bienvenido/a a nuestro Cantina con platos de España, Francia e Italia. Aquí encontrarás una amplia

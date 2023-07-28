@@ -4,9 +4,7 @@ import Image from "next/image";
 export default function Nosotros() {
   return (
     <div>
-      <div className="heading">
-        <h2>Nosotros</h2>
-      </div>
+      
 
       <div className="principal">
         <div className="cantina">

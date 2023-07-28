@@ -24,7 +24,7 @@ export default async function ListOfPosts() {
 return (
     <div className="main">
         {post.map(({ id, attributes }) => (
-                <div key={id} className="entrada">
+                <article key={id} className="entrada">
                     <div className="foto">
                         <img src={`http://127.0.0.1:1337${attributes.imagen.data.attributes.url}`} alt="" /> 
                     </div>
@@ -37,7 +37,7 @@ return (
                     <div className="boton">
                         <Link href="/"><button>Leer nota</button></Link>
                     </div>
-                </div>
+                </article>
    
         ))}
     </div>

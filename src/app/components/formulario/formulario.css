@@ -1,0 +1,61 @@
+.formulario {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 450px;
+    justify-content: center;
+    margin: 3.5rem auto;
+    background: #1064a6;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: white;
+}
+
+.contacto{
+    color: #ff5c5c;
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+form ::placeholder{
+color: white;
+font-family: "comme";
+}
+
+form input,
+form textarea {
+width: 100%;
+padding: 1em;
+border: none;
+background: none;
+outline: 0;
+color: #fff;
+border-bottom: 1px solid rgb(3, 35, 54);
+}
+
+form button{
+display: flex;
+background: #ff5c5c;
+width: 20%;
+text-align: center;
+align-items: center;
+justify-content: center;
+margin: 24px auto;
+border: 1px solid red;
+border-radius: 7px;
+outline: 0;
+color: #fff;
+border: 0;
+text-transform: uppercase;
+padding: 0.5em;
+}
+
+form button:hover,
+form button:focus {
+background:white;
+font-weight: bolder;
+color: #ff5c5c;
+transition: background-color 1s ease-out;
+outline: 0;
+cursor: pointer;
+}
