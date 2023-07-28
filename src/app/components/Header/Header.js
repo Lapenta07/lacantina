@@ -18,7 +18,7 @@ return (
         Home
         </Link></li>
         <li><Link href="/">
-        Recetas
+        Menú
         </Link></li>
         <li><Link href="/carrito">
         <span className="carrito">🛒</span><span>0</span>			
