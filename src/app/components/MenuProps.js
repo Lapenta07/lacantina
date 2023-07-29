@@ -1,5 +1,8 @@
 import Link from "next/link";
 import './menuProps.css'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
+
 
 async function getPost() {
 try {
@@ -33,17 +36,16 @@ return (
                         </div>
                         
                     <div className="contenido">
-                        <div className="atributos">
-                            <p>{attributes.pais} </p>
-                            <p>{attributes.tipo}</p>
-                            <p>{attributes.raiting}</p> 
-                        </div>
                         <div className="descripcion"> 
                             <p>{attributes.Descripcion}</p>
                         </div>
-                        
-                        <div className="boton">
-                            <p>🛒</p>
+                        <div className="atributos">
+                            <p>{attributes.raiting}</p> 
+                            <p>{attributes.pais} </p>
+                        </div>
+                        <div className="precio">
+                            <p>${attributes.Precio}</p>
+                            <button className="boton"><FontAwesomeIcon icon={faCartPlus} /></button>
                         </div>
                     </div>
                 </article>

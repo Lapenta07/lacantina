@@ -1,0 +1,20 @@
+.articulo{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 50%;
+    margin: 2rem auto;
+}
+
+.articulo .titular{
+    text-align: center;
+    font-size: 5rem;
+    margin: 2rem 0;
+}
+
+.articulo .noticia{
+    font-size: larger;
+    letter-spacing: 0.1rem;
+    word-spacing: 0.1rem;
+    line-height: 1.5rem;
+}

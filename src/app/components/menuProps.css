@@ -12,13 +12,14 @@
 .main .card{
     position: relative;
     max-width: 300px;
-    height: 160px;
+    height: 140px;
     background: var(--azul);
     margin: 60px 15px;
     padding: 20px 15px;
     flex-direction: column;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-    transition: 0.7s ease-in-out;
+    transition: 0.5s ease-in-out;
+    border-radius: 20px;
 }
 
 .main .card:hover{
@@ -46,18 +47,19 @@
     left: 20px;
     z-index: 1;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
 }
 
 .main .card .imgBx img{
     max-width: 100%;
-    border-radius: 4px 4px 4px 4px;
+    border-radius: 20px;
 }
 
 .main .card .contenido{
     position: relative;
     margin-top: -140px;
     padding: 10px 15px;
-    text-align: center;
+    text-align: left;
     color:  white;
     visibility: hidden;
     opacity: 0;
@@ -74,38 +76,39 @@
 
 .main .card .contenido .atributos{
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 10px auto;
-    justify-content: space-around;
-}
+    justify-content: space-between;
+} 
 
 .main .card .contenido .atributos p{
-    background: #ff5c5c;
-    border-radius: 10px;
-    padding: 4px 4px;
     text-transform: capitalize;
 }
 
-.main .card .contenido .boton{
-    width: 20%;
+.main .card .contenido .precio{
+    margin-top: 24px;
     display: flex;
-    font-size: x-large;
-    margin: 0 auto;
-    transition: 0.2s;
-    border-radius: 10px;
-    text-decoration: none;
-    background: #ff5c5c;
-    color: #f6f4ff;
-    cursor: pointer;
-    }
+    justify-content: space-between;
+}
 
-    .main .card .contenido .boton p{
-        align-items: center;
-        font-size: x-large;
-        margin: 10px auto;
-      
-    }
+.main .card .contenido .precio p{
+    font-size: 2rem;
+}
+
+
+.main .card .contenido .precio .boton{
+width: 20%;
+display: flex;
+font-size: 2rem;
+border-radius: 10px;
+border: 0px;
+background: transparent;
+color: #ff5c5c;
+cursor: pointer;
+}
+
+.main .card .contenido .precio .boton p{
+    align-items: center;
+    font-size: x-large;
+}
 
 
 

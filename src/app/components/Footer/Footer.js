@@ -1,6 +1,9 @@
 'use client'
 import "./footer.css";
 import Link from 'next/link'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+
 
 export default function Footer (){
     return(
@@ -14,7 +17,7 @@ export default function Footer (){
                 Menú
                 </Link></li>
                 <li><Link href="/carrito">
-                <span className="carrito">🛒</span><span>0</span>			
+                <span className="carrito"><FontAwesomeIcon icon={faCartShopping} /></span>			
                 </Link></li>
                 <li><Link href="/blog">
                 Blog

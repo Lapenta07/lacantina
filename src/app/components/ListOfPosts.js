@@ -35,10 +35,9 @@ return (
                         <p>{attributes.descripcion}</p>
                     </div>
                     <div className="boton">
-                        <Link href="/"><button>Leer nota</button></Link>
+                        <Link href={`/blog/${id}`}><button>LEER NOTA</button></Link>
                     </div>
                 </article>
-   
         ))}
     </div>
 );
