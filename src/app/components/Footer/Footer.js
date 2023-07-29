@@ -10,7 +10,7 @@ export default function Footer (){
                 <li><Link href='/'>
                 Home
                 </Link></li>
-                <li><Link href="/">
+                <li><Link href="/menu">
                 Menú
                 </Link></li>
                 <li><Link href="/carrito">

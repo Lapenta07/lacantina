@@ -55,6 +55,11 @@ background: #ff5c5c;
 color: #f6f4ff;
 cursor: pointer;
 transition: 0.5s;
+border: none;
+}
+
+.entrada .boton a{
+    text-decoration: none;
 }
 
 

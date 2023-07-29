@@ -17,7 +17,7 @@ export default function Home() {
         <div>
         <Link href="/nosotros">
                 Leer más
-                </Link>  
+        </Link>  
         </div>
       </div>
     </div>
