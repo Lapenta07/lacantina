@@ -36,3 +36,7 @@ font-size: 1.3rem;
 .derecha h4{
     color: #ff5c5c;
 }
+
+.derecha .icono span{
+    color: white;
+}

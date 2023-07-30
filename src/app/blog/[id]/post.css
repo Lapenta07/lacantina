@@ -13,6 +13,9 @@
 }
 
 .articulo .noticia{
+    color: whitesmoke;
+    padding: 1rem 1rem;
+    border-radius: 20px;
     font-size: larger;
     letter-spacing: 0.1rem;
     word-spacing: 0.1rem;
