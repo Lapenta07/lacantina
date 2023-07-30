@@ -1,58 +1,75 @@
-Ingredientes:
-
-300 g de arroz Arborio (arroz especial para risotto)
-500 g de champiñones o setas variadas, limpios y picados
-100 g de panceta o bacon, cortados en trozos pequeños
-1 cebolla grande, picada finamente
-3 dientes de ajo, picados
-1 litro de caldo de pollo (aproximadamente)
-1 taza de vino blanco (opcional)
-50 g de mantequilla
-1/2 taza de queso parmesano rallado
-2 cucharadas de aceite de oliva
-Sal y pimienta al gusto
-Perejil fresco picado (opcional, para decorar)
-Instrucciones:
-
-Preparación de los ingredientes:
-En una olla, calienta el caldo de pollo y mantenlo caliente a fuego bajo durante toda la preparación del risotto.
-En una sartén grande, calienta el aceite de oliva a fuego medio y agrega la panceta o bacon. Cocina hasta que estén dorados y crujientes. Retira la panceta de la sartén y colócala sobre papel absorbente para escurrir el exceso de grasa.
-Sofrito:
-En la misma sartén, utiliza la grasa de la panceta para sofreír la cebolla picada y el ajo hasta que estén tiernos y translúcidos.
-Cocinar los champiñones:
-Agrega los champiñones o setas picadas a la sartén y cocínalos hasta que se doren y liberen su líquido. Puedes salpimentar ligeramente los hongos mientras se cocinan.
-Añadir el arroz y el vino (opcional):
-Añade el arroz Arborio a la sartén y revuélvelo bien con los ingredientes sofritos, asegurándote de que cada grano de arroz esté cubierto con la grasa de la sartén.
-Si deseas añadir vino blanco al risotto, vierte una taza en la sartén y revuelve hasta que se haya evaporado por completo.
-Cocinar el risotto:
-Añade una cucharón del caldo de pollo caliente al arroz y revuelve constantemente a fuego medio. A medida que el caldo se absorbe, agrega más caldo y continúa removiendo. Repite este proceso hasta que el arroz esté cremoso y al dente, lo que tomará aproximadamente 18-20 minutos.
-Finalización:
-Retira la sartén del fuego y agrega la mantequilla y el queso parmesano rallado. Mezcla bien hasta que la mantequilla y el queso se hayan derretido y el risotto tenga una textura suave y cremosa.
-Añade la panceta crujiente reservada y mezcla nuevamente.
-Servir:
-Sirve el Risotto de Hongos y Panceta en platos individuales y decora con un poco de perejil picado fresco si lo deseas. Puedes espolvorear un poco más de queso parmesano rallado por encima antes de servir.
-El risotto estará listo para disfrutar. ¡Espero que te guste esta deliciosa combinación de sabores!
+'use client'
+import { useState } from "react";
+import './menuProps.css'
+import Carrito from "./icons/Carrito";
 
 
-El risotto es un platillo cremoso y reconfortante que combina bien con los sabores de los hongos y la panceta. ¡Vamos a cocinarlo!
+async function getPost() {
+try {
+    const res = await fetch('http://127.0.0.1:1337/api/recetas?populate=*');
 
+    if (!res.ok) {
+        throw new Error('algo mal, no se que');
+    }
 
-"¡Hola a todos! Soy Nico, el orgulloso dueño y fundador de nuestra querida Cantina en Almagro. Con mis 38 años de edad, siempre he sido un apasionado de la cocina y las experiencias gastron
+    const { data } = await res.json();
+    return data;
+    } catch (error) {
+    console.error('Error en getPost:', error);
+    throw error; // Re-lanza el error para que pueda ser capturado nuevamente en el lugar que llama a getPost
+    }
+}
 
 
 
-<div className="receta">
-                <img src={`http://127.0.0.1:1337${attributes.imagen.data.attributes.url}`} alt="" />
-            </div>
-            <div className="details">
-                <h3 className="titulo">{attributes.titulo}</h3>
-                <div className="info">
-                    <p>{attributes.descripcion}</p>
-                    <div className="compra">
-                        <Link href="/" className="carrito">
-                            <button>Leer más</button>
-                        </Link>            
+export default async function ListOfPosts({agregarCarrito}) {
+    const post = await getPost();
+    console.log(post);
+
+
+
+return (
+    <div className="main">
+        {post.map(({ id, attributes }) => (
+                <article key={id} className="card">
+                        <div className="imgBx">
+                            <img src={`http://127.0.0.1:1337${attributes.imagen.data.attributes.url}`} alt="" /> 
+                        </div>
+                        <div className="titulo">    
+                            <h3>{attributes.Nombre}</h3>
+                        </div>
+                        
+                    <div className="contenido">
+                        <div className="descripcion"> 
+                            <p>{attributes.Descripcion}</p>
+                        </div>
+                        <div className="atributos">
+                            <p>{attributes.raiting}</p> 
+                            <p>{attributes.pais} </p>
+                        </div>
+                        <div className="precio">
+                            <p>${attributes.Precio}</p>
+                            <form className="form" onSubmit={handleSubmit}>
+                                <label className="cantidad">Cantidad:</label>
+
+                                <select className="seleccion"
+                                    value={cantidad}
+                                >
+                                    <option value="">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+
+                                <button className="boton" type="submit"> <Carrito fill="#ff5c5c"/> </button>
+                            </form>
+                        </div>
                     </div>
-                </div>
-                    
-            </div>
+                </article>
+
+        ))}
+    </div>
+);
+}

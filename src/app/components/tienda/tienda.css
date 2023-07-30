@@ -1,0 +1,19 @@
+.principal .heading{
+    color: var(--salmon);
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    margin: 4rem auto;
+}
+
+.principal .agregados{
+    display: grid;
+    gap: 4rem;
+}
+
+@media (min-width:768px){
+    .principal .agregados{
+        grid-template-columns: 3fr 2fr;
+    }
+}
+

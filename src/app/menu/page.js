@@ -1,12 +1,19 @@
-import MenuProps from '../components/MenuProps'
-import './menu.css'
+'use client'
+import { useState } from "react";
+import MenuProps from "../components/MenuProps";
 
-export default function menu(){
-    return (
-    <main>
-        <div>
-            <MenuProps />
-        </div>
-    </main>
-    )
+export default function Menu() {
+  const [carrito, setCarrito] = useState([]);
+
+  // Función para agregar plato al carrito
+  const agregarCarrito = (platoSeleccionado) => {
+    setCarrito([...carrito, platoSeleccionado]);
+    console.log('Plato agregado al carrito:', platoSeleccionado);
+  };
+
+  return (
+    <div>
+      <MenuProps agregarCarrito={agregarCarrito}/>
+    </div>
+  );
 }
