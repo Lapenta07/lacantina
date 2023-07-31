@@ -1,75 +1,95 @@
 'use client'
-import { useState } from "react";
-import './menuProps.css'
-import Carrito from "./icons/Carrito";
+import { useEffect, useState } from "react";
+import MenuProps from "../components/MenuProps";
 
+export default function Menu() {
+  const [carrito, setCarrito] = useState([]);
 
-async function getPost() {
-try {
-    const res = await fetch('http://127.0.0.1:1337/api/recetas?populate=*');
+  useEffect(() => {
+    const carritoLS = JSON.parse(localStorage.getItem("carrito")) || [];
+    setCarrito(carritoLS);
+  }, []);
 
-    if (!res.ok) {
-        throw new Error('algo mal, no se que');
+  useEffect(() => {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+  }, [carrito]);
+
+  const agregarCarrito = (platoSeleccionado) => {
+    const itemExists = carrito.some((articulo) => articulo.id === platoSeleccionado.id);
+
+    if (itemExists) {
+      const carritoActualizado = carrito.map((articulo) =>
+        articulo.id === platoSeleccionado.id ? platoSeleccionado : articulo
+      );
+      setCarrito(carritoActualizado);
+    } else {
+      setCarrito([...carrito, platoSeleccionado]);
     }
 
-    const { data } = await res.json();
-    return data;
-    } catch (error) {
-    console.error('Error en getPost:', error);
-    throw error; // Re-lanza el error para que pueda ser capturado nuevamente en el lugar que llama a getPost
-    }
-}
+    console.log("Plato agregado al carrito:", platoSeleccionado);
 
+    console.log(carrito)
+    
+  };
 
-
-export default async function ListOfPosts({agregarCarrito}) {
-    const post = await getPost();
-    console.log(post);
-
-
-
-return (
-    <div className="main">
-        {post.map(({ id, attributes }) => (
-                <article key={id} className="card">
-                        <div className="imgBx">
-                            <img src={`http://127.0.0.1:1337${attributes.imagen.data.attributes.url}`} alt="" /> 
-                        </div>
-                        <div className="titulo">    
-                            <h3>{attributes.Nombre}</h3>
-                        </div>
-                        
-                    <div className="contenido">
-                        <div className="descripcion"> 
-                            <p>{attributes.Descripcion}</p>
-                        </div>
-                        <div className="atributos">
-                            <p>{attributes.raiting}</p> 
-                            <p>{attributes.pais} </p>
-                        </div>
-                        <div className="precio">
-                            <p>${attributes.Precio}</p>
-                            <form className="form" onSubmit={handleSubmit}>
-                                <label className="cantidad">Cantidad:</label>
-
-                                <select className="seleccion"
-                                    value={cantidad}
-                                >
-                                    <option value="">0</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-
-                                <button className="boton" type="submit"> <Carrito fill="#ff5c5c"/> </button>
-                            </form>
-                        </div>
-                    </div>
-                </article>
-
-        ))}
+  return (
+    <div>
+      <MenuProps agregarCarrito={agregarCarrito} />
     </div>
-);
+  );
 }
+
+
+ const agregarCarrito = (platoSeleccionado) => {
+    const itemExists = carrito.some((articulo) => articulo.id === platoSeleccionado.id);
+
+    if (itemExists) {
+      const carritoActualizado = carrito.map((articulo) =>
+        articulo.id === platoSeleccionado.id ? platoSeleccionado : articulo
+      );
+      setCarrito(carritoActualizado);
+    } else {
+      setCarrito([...carrito, platoSeleccionado]);
+    }
+
+    console.log("Plato agregado al carrito:", platoSeleccionado);
+    console.log(carritoGlobal)
+
+  };
+
+  agregarCarrito={agregarCarrito} 
+
+
+  import { useEffect, useState } from "react";
+
+export let carritoGlobal = []; // Definir una variable para almacenar el estado del carrito
+
+export default function Menu() {
+  const [carrito, setCarrito] = useState([]);
+
+  useEffect(() => {
+    const carritoLS = JSON.parse(localStorage.getItem("carrito")) || [];
+    setCarrito(carritoLS);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    carritoGlobal = carrito; // Actualizar el valor de carritoGlobal cuando el carrito cambie
+  }, [carrito]);
+
+  const agregarCarrito = (platoSeleccionado) => {
+    const itemExists = carrito.some((articulo) => articulo.id === platoSeleccionado.id);
+
+    if (itemExists) {
+      const carritoActualizado = carrito.map((articulo) =>
+        articulo.id === platoSeleccionado.id ? platoSeleccionado : articulo
+      );
+      setCarrito(carritoActualizado);
+    } else {
+      setCarrito([...carrito, platoSeleccionado]);
+    }
+
+    console.log("Plato agregado al carrito:", platoSeleccionado);
+    console.log(carritoGlobal)
+
+  };

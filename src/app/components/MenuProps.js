@@ -3,23 +3,20 @@ import { useEffect, useState } from "react";
 import './menuProps.css'
 import Carrito from "./icons/Carrito";
 
-export default function menuProps({ agregarCarrito }) {
+export default function menuProps({agregarCarrito}) {
   const [post, setPost] = useState([]);
-  const [cantidad, setCantidad] = useState(1); // Inicialmente, la cantidad será 1
+  const [cantidad, setCantidad] = useState(0);
 
   const handleSubmit = (e, id) => {
     e.preventDefault();
-    // Agregar al carrito
     if (cantidad < 1) {
       alert('Cantidad no válida');
       return;
     }
 
-    // Obtener el plato seleccionado del array post según el id
     const platoSeleccionado = post.find(item => item.id === id);
 
     if (platoSeleccionado) {
-      // Crear el objeto para agregar al carrito
       const itemCarrito = {
         id: platoSeleccionado.id,
         imagen: platoSeleccionado.attributes.imagen.data.attributes.url,
@@ -28,7 +25,6 @@ export default function menuProps({ agregarCarrito }) {
         cantidad: cantidad,
       };
 
-      // Llamar a la función agregarCarrito para agregar el plato al carrito
       agregarCarrito(itemCarrito);
       alert('Plato agregado al carrito');
     } else {
@@ -58,7 +54,6 @@ export default function menuProps({ agregarCarrito }) {
   return (
     <div className="main">
       {post.map(({ id, attributes }) => {
-        const { Nombre, Precio } = attributes;
 
         return (
           <article key={id} className="card">

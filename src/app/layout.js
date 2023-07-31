@@ -1,9 +1,11 @@
 'use client'
 import { useState, useEffect } from 'react'
+import { CarritoProvider } from './components/CarritoContext'
 import './globals.css'
 import Header from '../app/components/Header/Header'
 import Footer from '../app/components/Footer/Footer'
 import { Inter } from 'next/font/google'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -28,11 +30,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-         <div>carrito={carrito}</div>
-         <div>agregarCarrito={agregarCarrito}</div>
+        <CarritoProvider>
         <Header/>
           {children}
         <Footer/>
+        </CarritoProvider>
       
       </body>
     </html>
