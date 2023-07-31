@@ -1,5 +1,3 @@
-'use client'
-import { useState, useEffect } from 'react'
 import { CarritoProvider } from './components/CarritoContext'
 import './globals.css'
 import Header from '../app/components/Header/Header'
@@ -16,15 +14,7 @@ export const metadata  = {
 
 export default function RootLayout({ children }) {
 
-  const [carrito, setCarrito] = useState([]);
 
-  useEffect(() => {
-    console.log(carrito);
-  }, [carrito]);
-
-  const agregarCarrito = producto =>{
-    setCarrito([...carrito, producto])
-  };
 
 
   return (

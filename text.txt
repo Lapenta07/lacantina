@@ -1,0 +1,9 @@
+  const [carrito, setCarrito] = useState([]);
+
+  useEffect(() => {
+    console.log(carrito);
+  }, [carrito]);
+
+  const agregarCarrito = producto =>{
+    setCarrito([...carrito, producto])
+  };
